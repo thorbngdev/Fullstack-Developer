@@ -1,13 +1,13 @@
-package br.com.maxima;
+package br.com.frete;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackEndMaximaApplication {
+public class FreteServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackEndMaximaApplication.class, args);
+		SpringApplication.run(FreteServiceApplication.class, args);
 	}
 
 }
