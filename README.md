@@ -16,8 +16,16 @@ Serviço que contém a API
 
 **Configuração**
 
+Configuração de parâmetros de banco em application.properties
 
-Configuração de parâmetros de banco em application.properties (PostgreSQL)
+Parâmetros:
+* URL_DO_BANCO: url do banco de dados PostgreSQL
+* PORTA: porta do banco de dados PostgreSQL
+* NOME_DO_BANCO: nome do banco de dados PostgreSQL
+* USUARIO: usuário de acesso ao banco
+* SENHA: senha de acesso ao banco
+
+Exemplo:
 ```properties
 spring.datasource.driver-class-name: org.postgresql.Driver
 spring.datasource.url: jdbc:postgresql://URL_DO_BANCO:PORTA/NOME_DO_BANCO
@@ -25,6 +33,7 @@ spring.datasource.username: USUARIO
 spring.datasource.password: SENHA
 ```
 
+* As tabelas necessárias serão criadas automaticamente, desde que o serviço tenha a configuração necessária.
 * Java 8
 * SpringBoot
 * Executar o serviço 
