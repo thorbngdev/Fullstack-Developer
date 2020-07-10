@@ -33,11 +33,9 @@ spring.datasource.username: USUARIO
 spring.datasource.password: SENHA
 ```
 
-* As tabelas necessárias serão criadas automaticamente, desde que o serviço tenha a configuração necessária.
+* As tabelas necessárias serão criadas automaticamente, desde que o serviço tenha a configuração correta.
 * Java 8
-* SpringBoot
-* Executar o serviço 
-* Porta 8080
+* Porta 8080 liberada
 
 ## Sobre frete-service
 
@@ -48,9 +46,7 @@ Serviço que contém a funcionalidade de cálculo de frete.
 **Configuração**
 
 * Java 8
-* SpringBoot
-* Apenas executar o serviço.
-* Porta 8081
+* Porta 8081 liberada
 
 ## Sobre front-end-maxima
 
@@ -61,8 +57,7 @@ Front-end da aplicação, contém a interface do projeto.
 **Configuração**
 
 * Angular 10
-* Apenas executar o serviço: ng serve
-* Porta 4200
+* Porta 4200 liberada
 
 ## Contato
 eduardotorresgalvao@gmail.com
