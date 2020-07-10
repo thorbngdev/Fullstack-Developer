@@ -12,7 +12,7 @@ Projeto referente ao processo seletivo da MaximaTech para Desenvolvedor Fullstac
 
 **Sobre**
 
-Serviço que contém a funcionalidade de cálculo de frete.
+Serviço que contém a API
 
 **Configuração**
 
@@ -26,6 +26,7 @@ spring.datasource.password: SENHA
 ```
 
 * Java 8
+* SpringBoot
 * Executar o serviço 
 * Porta 8080
 
@@ -38,6 +39,7 @@ Serviço que contém a funcionalidade de cálculo de frete.
 **Configuração**
 
 * Java 8
+* SpringBoot
 * Apenas executar o serviço.
 * Porta 8081
 
