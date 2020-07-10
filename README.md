@@ -4,11 +4,9 @@ Projeto referente ao processo seletivo da MaximaTech para Desenvolvedor Fullstac
 
 ## Módulos
 
-1. Interface em angular: front-end-maxima
-2. Serviço de API: api-service
-3. Serviço para cáculo de frete: frete-service
-
-É hora do show!
+1. front-end-maxima
+2. api-service
+3. frete-service
 
 ## Sobre api-service
 
