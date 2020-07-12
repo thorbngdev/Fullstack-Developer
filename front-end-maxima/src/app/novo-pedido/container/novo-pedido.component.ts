@@ -83,13 +83,17 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ajustarPrecoTotal(produto: Produto, event: any) {
     let qtd: number = event.target.value;
-    if(qtd > 0) {
+    if(qtd > 0 && qtd < 100) {
       produto.quantidade = event.target.value;
       console.log(produto.quantidade);
     } else {
       console.log("Quantidade invalida");
     }
     
+  }
+
+  obterNomeAjustado(produto: Produto) {
+    return produto.nome.slice(0, 50) + '...';
   }
 
   ngOnDestroy() {

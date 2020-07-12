@@ -42,17 +42,18 @@
                             </div>
                             <div class="carrinho-lista-item-label">
                                 <label class="carrinho-lista-item-label-1">{{produto.codigo}}</label>
-                                <label class="carrinho-lista-item-label-2">{{produto.id}}</label>
+                                <label class="carrinho-lista-item-label-2">{{obterNomeAjustado(produto)}}</label>
                             </div>
                             <div class="carrinho-lista-item-unitario">
                                 <label>x R$ {{formatarPreco(produto.precoUnitario)}}</label>
                             </div>
                             <div class="carrinho-lista-item-total">
-                                <label>x R$ {{formatarPreco(produto.precoUnitario*produto.quantidade)}}</label>
+                                <label>R$ {{formatarPreco(produto.precoUnitario*produto.quantidade)}}</label>
                             </div>
                             <div class="carrinho-lista-item-quantidade">
                                 <input type="text" class="input-quantidade" value="1"
-                                    onkeyup="this.value=this.value.replace(/[^\d]/,'');" (keyup)="ajustarPrecoTotal(produto, $event)">
+                                    onkeyup="this.value=this.value.replace(/[^\d]/,''); (this.value > 99) ? this.value = 99 : this.value = this.value"
+                                    (keyup)="ajustarPrecoTotal(produto, $event)">
                             </div>
                             <div class="carrinho-lista-item-deletar">
                                 <button class="btn" (click)="removerProduto(produto)">
