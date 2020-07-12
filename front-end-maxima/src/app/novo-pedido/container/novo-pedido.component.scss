@@ -1,0 +1,231 @@
+.novo-pedido-label {
+    position: absolute;
+    width: 297px;
+    height: 24px;
+    left: 120px;
+    top: 126px;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 26px;
+    line-height: 24px;
+}
+
+.novo-pedido {
+    position: absolute;
+    left: 4.17%;
+    right: 4.24%;
+    top: 12.57%;
+    bottom: 4.18%;
+}
+
+.cliente {
+    position: absolute;
+    left: 4.17%;
+    right: 4.24%;
+    top: 9.57%;
+    bottom: 65.55%;
+    display: flex;
+    align-items: flex-end;
+    background: #ffffff;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+}
+
+.cliente-label {
+    position: absolute;
+    left: 2.79%;
+    right: 89.48%;
+    top: 20.55%;
+    bottom: 63.46%;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 22.75px;
+    line-height: 24px;
+    /* or 105% */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #373a3c;
+}
+
+.cliente-select {
+    position: absolute;
+    left: 1.9%;
+    right: 51.08%;
+    top: 49.86%;
+    bottom: 24.82%;
+    font-family: Euclid Circular B Light;
+    font-size: 16px;
+    line-height: 24px;
+    color: #999999;
+}
+
+.carrinho {
+    position: absolute;
+    left: 4.17%;
+    right: 4.24%;
+    top: 39.03%;
+    bottom: -4%;
+
+    display: flex;
+    align-items: flex-end;
+
+    background: #ffffff;
+
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+}
+
+.carrinho-label {
+    position: absolute;
+    left: 2.72%;
+    right: 88.04%;
+    top: 7.09%;
+    bottom: 87.91%;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 22.75px;
+    line-height: 24px;
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #373a3c;
+}
+
+.carrinho-select {
+    position: absolute;
+    left: 1.9%;
+    right: 54.36%;
+    top: 18.42%;
+    bottom: 73.66%;
+    font-family: Euclid Circular B Light;
+    font-size: 16px;
+    line-height: 24px;
+    color: #999999;
+}
+
+.carrinho-select-button {
+    width: 100%;
+    text-align: left;
+}
+
+.carrinho-vazio {
+    position: absolute;
+    left: 40.25%;
+    right: 40.48%;
+    top: 32.91%;
+    bottom: 15.44%;
+}
+
+.carrinho-vazio-icone {
+    position: absolute;
+    left: 22.47%;
+    right: 19.44%;
+    top: 0%;
+    bottom: 40.32%;
+}
+
+.carrinho-vazio-label-1 {
+    position: absolute;
+    left: 5.01%;
+    right: -0.92%;
+    top: 76.21%;
+    bottom: 14.11%;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 36px;
+    line-height: 24px;
+    /* or 67% */
+
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.carrinho-vazio-label-2 {
+    position: absolute;
+    left: -10.53%;
+    right: -4.31%;
+    top: 92.95%;
+    bottom: -1.97%;
+
+    font-family: Euclid Circular B;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.carrinho-lista {
+    position: absolute;
+    left: 2.88%;
+    right: 2.35%;
+    top: 32.76%;
+    bottom: 36.62%;
+}
+
+.carrinho-lista-item {
+    height: 120px;
+}
+
+.carrinho-lista-item-label {
+    position: absolute;
+    left: 9.76%;
+    right: 68.4%;
+    top: 41.47%;
+    bottom: 30.77%;
+}
+
+.carrinho-lista-item-icone {
+    position: absolute;
+    left: 0.08%;
+    right: 91.84%;
+    top: 14.69%;
+    bottom: 14.69%;
+    border-radius: 241.5px;
+}
+
+.carrinho-lista-item-deletar {
+    position: absolute;
+    left: 96.2%;
+    right: 1.12%;
+    top: 36.66%;
+    bottom: 12.66%;
+}
+
+.total {
+    position: absolute;
+    height: 280px;
+    left: 4.17%;
+    right: 4.24%;
+    top: 108%;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: flex-end;
+
+    background: #ffffff;
+
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+}
+
+.total-label {
+    position: absolute;
+    left: 2.72%;
+    right: 88.04%;
+    top: 13.24%;
+    bottom: 77.42%;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 22.75px;
+    line-height: 24px;
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #373a3c;
+}

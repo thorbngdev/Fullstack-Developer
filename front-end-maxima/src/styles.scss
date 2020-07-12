@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@font-face {
+    font-family: Euclid Circular B Bold;
+    src: url(assets/fontes/EuclidCircularB-Bold.otf) format("opentype");
+}
+
+@font-face {
+    font-family: Euclid Circular B;
+    src: url(assets/fontes/EuclidCircularB-Regular.otf) format("opentype");
+}
+
+@font-face {
+    font-family: Euclid Circular B Light;
+    src: url(assets/fontes/EuclidCircularB-Light.otf) format("opentype");
+}
+
+html, body {
+    background-color: #E5E5E5;
+}
+
+.ng-select.custom .ng-clear-wrapper .ng-clear {
+    font-size: 0 !important;
+}
+
+.ng-select.custom .ng-clear-wrapper .ng-clear::before {
+    content: '' !important;
+    display: inline-block !important;
+    width: 15px !important;
+    height: 15px !important;
+    background-image: url('assets/icones/icone-apagar-sm.png') !important;
+}
+
+.ng-select .ng-clear-wrapper {
+    cursor: pointer;
+    position: relative;
+    width: 25px !important;
+    height: 18px !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ng-select .ng-arrow-wrapper {
+    display: none !important;
+}

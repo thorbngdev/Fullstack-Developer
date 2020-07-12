@@ -1,0 +1,97 @@
+<label class="novo-pedido-label">Novo pedido #{{novoPedidoCodigo}}</label>
+<div class="novo-pedido">
+    <div class="cliente">
+        <div class="cliente-label">
+            <img src="../../../assets/icones/icone-cliente.png">
+            <label>Cliente</label>
+        </div>
+        <div class="cliente-select col-md-6">
+            <ng-select class="custom" #selectcliente [items]="clientes" bindLabel="nome"
+                placeholder="Informe um cliente *" (change)="setClienteSelecionado($event)">
+            </ng-select>
+        </div>
+    </div>
+    <div class="carrinho">
+        <div class="carrinho-label">
+            <img src="../../../assets/icones/icone-carrinho.png">
+            <label>Carrinho</label>
+        </div>
+        <div class="carrinho-select col-md-6">
+            <ng-select class="custom" #selectproduto [items]="produtos" bindLabel="nome"
+                placeholder="Pesquise um produto" (change)="setProdutoSelecionado($event)">
+                <ng-template ng-option-tmp let-produto="item">
+                    <button class="btn carrinho-select-button"
+                        (click)="adicionarProduto(produto)">{{produto.nome}}</button>
+                </ng-template>
+            </ng-select>
+
+        </div>
+        <div *ngIf="carrinhoVazio()" class="carrinho-vazio">
+            <img class="carrinho-vazio-icone" src="../../../assets/icones/imagem-carrinho-empty-state.png">
+            <label class="carrinho-vazio-label-1">Carrinho vazio</label>
+            <label class="carrinho-vazio-label-2">Nenhum produto foi inserido</label>
+        </div>
+        <!--flexibilizar com aumento de lista-->
+        <div *ngIf="!carrinhoVazio()" class="carrinho-lista">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let produto of produtosEscolhidos">
+                        <div class="carrinho-lista-item">
+                            <div class="carrinho-lista-item-icone">
+
+                            </div>
+                            <div class="carrinho-lista-item-label">
+                                {{produto.codigo}}
+                            </div>
+                            <div class="carrinho-lista-item-unitario">
+
+                            </div>
+                            <div class="carrinho-lista-item-total">
+
+                            </div>
+                            <div class="carrinho-lista-item-quantidade">
+
+                            </div>
+                            <div class="carrinho-lista-item-deletar">
+                                <button class="btn" (click)="removerProduto(produto)">x</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="total">
+        <div class="total-label">
+            <img src="../../../assets/icones/icone-total.png">
+            <label>Total</label>
+        </div>
+    </div>
+</div>
+<!-- 
+<ng-select [required]="true" [items]="tabelas$ | async" [closeOnSelect]="false" bindLabel="tabelaDestino" placeholder="Campo obrigatório!" appendTo="body" [multiple]="true" [(ngModel)]="selectedItem" [hideSelected]="true" (remove)="onDelete($event.value)"
+    (clear)="onDeleteAll($event)">
+    <ng-template ng-option-tmp let-item="item">
+        <button class="btn botao-item" (click)="onSelectItem(item)">{{item.tabelaDestino}}
+                </button>
+    </ng-template>
+    <ng-template ng-multi-label-tmp let-items="items">
+        <div class="ng-value" *ngFor="let item of (items ? items.slice(0,[boxLimit]): [])">
+            <span class="ng-value-label"> {{item.tabelaDestino}}</span>
+            <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+        </div>
+        <div class="ng-value" *ngIf="items.length > [boxLimit]" placement="right" [ngbTooltip]="myTemplateId" container="body">
+            <span class="ng-value-label">
+                          {{items.length - boxLimit}} mais...
+                    </span>
+            <ng-template #myTemplateId>
+                <a style="white-space: pre-line">{{ tooltipPrint() }}</a>
+            </ng-template>
+        </div>
+    </ng-template>
+    <ng-template ng-header-tmp>
+        <div>
+            <button class="btn btn-link botao-selecionar-todos" (click)="onSelectAll()">Selecionar Todos</button>
+        </div>
+    </ng-template>
+</ng-select> -->

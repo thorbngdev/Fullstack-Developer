@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-end-maxima"
+    }
+  },
+  "defaultProject": "front-end-maxima",
+  "cli": {
+    "analytics": false
+  }
 }
