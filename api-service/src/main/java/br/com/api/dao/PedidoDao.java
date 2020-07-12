@@ -45,8 +45,8 @@ public class PedidoDao {
              * Insere os itens do pedido
              */
             for (PedidoItem item : pedido.getPedidoItens()) {
-                String sqlItem = "INSERT INTO PEDIDO_ITEM(id_pedido, id_item, nome_item, codigo_item, valor_unitario) values(?, ?, ?, ?, ?)";
-                jdbcTemplate.update(sqlItem, idPedido, item.getIdItem(), item.getNomeItem(), item.getCodigoItem(), item.getValorUnitario());
+                String sqlItem = "INSERT INTO PEDIDO_ITEM(id_pedido, id_item, nome_item, codigo_item, quantidade, valor_unitario) values(?, ?, ?, ?, ?, ?)";
+                jdbcTemplate.update(sqlItem, idPedido, item.getIdItem(), item.getNomeItem(), item.getCodigoItem(), item.getQuantidade(), item.getValorUnitario());
             }
         } catch (Exception e) {
             throw new InserirPedidoException();

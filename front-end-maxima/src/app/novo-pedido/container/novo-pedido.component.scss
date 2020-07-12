@@ -179,11 +179,89 @@
     bottom: 30.77%;
 }
 
+.carrinho-lista-item-label-1 {
+    position: absolute;
+    left: 9.76%;
+    right: 76.39%;
+    top: 31.47%;
+    bottom: 47.55%;
+    width: 300px;
+
+    font-family: Euclid Circular B Light;
+    font-size: 16px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: flex-end;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.carrinho-lista-item-label-2 {
+    position: absolute;
+    left: 9.76%;
+    right: 68.4%;
+    top: 52.45%;
+    bottom: 30.77%;
+    width: 500px;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+}
+
+.carrinho-lista-item-unitario {
+    position: absolute;
+    left: 85.28%;
+    right: 4.8%;
+    top: 27.27%;
+    bottom: 46.75%;
+    width: 100px;
+
+    font-family: Euclid Circular B Light;
+    font-size: 16px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.carrinho-lista-item-total {
+    position: absolute;
+    left: 82.56%;
+    right: 4.8%;
+    top: 52.45%;
+    bottom: 21.57%;
+    width: 150px;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+
+    color: #373a3c;
+}
+
+.carrinho-lista-item-quantidade {
+    position: absolute;
+    left: 82.5%;
+    right: 11.84%;
+    top: 23.87%;
+    bottom: 51.05%;
+}
+
 .carrinho-lista-item-icone {
     position: absolute;
-    left: 0.08%;
+    left: 3.5%;
     right: 91.84%;
-    top: 14.69%;
+    top: 38.69%;
     bottom: 14.69%;
     border-radius: 241.5px;
 }
@@ -194,6 +272,17 @@
     right: 1.12%;
     top: 36.66%;
     bottom: 12.66%;
+}
+
+.input-quantidade {
+    width: 30px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-align: center;
+    font-family: Euclid Circular B Light;
+    color: #868686;
 }
 
 .total {

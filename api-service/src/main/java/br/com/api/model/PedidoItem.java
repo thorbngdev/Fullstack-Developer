@@ -7,6 +7,7 @@ public class PedidoItem {
     private String idItem;
     private String nomeItem;
     private String codigoItem;
+    private Integer quantidade;
     private BigDecimal valorUnitario;
 
     public String getIdItem() {
@@ -31,6 +32,14 @@ public class PedidoItem {
 
     public void setCodigoItem(String codigoItem) {
         this.codigoItem = codigoItem;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
     public BigDecimal getValorUnitario() {

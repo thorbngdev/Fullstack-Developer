@@ -55,10 +55,6 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.produtos = produtos;
   }
 
-  popularListaProdutosEscolhidos(produtos: Produto[]) {
-    this.produtosEscolhidos = produtos;
-  }
-
   setClienteSelecionado(event: Cliente) {
     this.novoPedidoFacade.setClienteSelecionado(event);
   }
@@ -72,14 +68,28 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   adicionarProduto(event: Produto) {
+    event.quantidade = 1;
     this.produtosEscolhidos.push(event);
     this.novoPedidoFacade.setProdutosEscolhidos(this.produtosEscolhidos);
-    console.log(this.produtosEscolhidos);
   }
 
   removerProduto(event: Produto) {
     this.produtosEscolhidos.splice(this.produtosEscolhidos.indexOf(event), 1);
-    console.log(this.produtosEscolhidos);
+  }
+
+  formatarPreco(event: number) {
+    return (event).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+  }
+
+  ajustarPrecoTotal(produto: Produto, event: any) {
+    let qtd: number = event.target.value;
+    if(qtd > 0) {
+      produto.quantidade = event.target.value;
+      console.log(produto.quantidade);
+    } else {
+      console.log("Quantidade invalida");
+    }
+    
   }
 
   ngOnDestroy() {

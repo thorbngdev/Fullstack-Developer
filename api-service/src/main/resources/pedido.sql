@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS PEDIDO_ITEM
     id_item character varying(255) COLLATE pg_catalog."default",
 	nome_item character varying(1000) COLLATE pg_catalog."default",
 	codigo_item character varying(255) COLLATE pg_catalog."default",
+	quantidade integer,
     valor_unitario decimal(12,2),
 	FOREIGN KEY (id_pedido) REFERENCES PEDIDO (id_pedido)
 )
