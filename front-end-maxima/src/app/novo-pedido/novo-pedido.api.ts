@@ -18,6 +18,10 @@ export class NovoPedidoApi {
     getProdutos(): Observable<Produto[]> {
         return this.client.get<Array<Produto>>(this.url + 'produtos');
     }
+
+    getFrete(quantidade: number): Observable<number> {
+        return this.client.get<number>(this.url + 'frete?quantidade=' + quantidade);
+    }
     
 //     url: string = 'http://localhost:8080/api/';
 

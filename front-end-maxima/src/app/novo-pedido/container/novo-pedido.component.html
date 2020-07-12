@@ -71,6 +71,18 @@
             <img src="../../../assets/icones/icone-total.png">
             <label>Total</label>
         </div>
+        <label class="total-descricao-itens">Itens</label>
+        <label class="total-descricao-frete">Frete</label>
+        <label class="total-descricao-total">Total</label>
+        <label class="total-descricao-itens-valor">R$ {{obterValorItens()}}</label>
+        <label class="total-descricao-frete-valor">R$ {{obterValorFrete()}}</label>
+        <label class="total-descricao-total-valor">R$ {{obterValorTotal()}}</label>
+        <button class="btn total-botao-top row col-md-5">
+            <label class="total-botao-top-label ">Finalizar pedido</label>
+        </button>
+        <button class="btn total-botao-bot row col-md-5">
+            <label class="total-botao-bot-label">Limpar carrinho</label>
+        </button>
     </div>
 </div>
 <!-- 

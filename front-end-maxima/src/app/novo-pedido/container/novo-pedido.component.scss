@@ -131,7 +131,7 @@
     position: absolute;
     left: 5.01%;
     right: -0.92%;
-    top: 76.21%;
+    top: 78.21%;
     bottom: 14.11%;
     width: 300px;
 
@@ -167,6 +167,8 @@
     right: 2.35%;
     top: 32.76%;
     bottom: 36.62%;
+    height: 230px;
+    overflow: auto;
 }
 
 .carrinho-lista-item {
@@ -317,6 +319,156 @@
 
     display: flex;
     align-items: flex-end;
+
+    color: #373a3c;
+}
+
+.total-botao-top {
+    position: absolute;
+    left: 52.62%;
+    right: 1.74%;
+    top: 34.4%;
+    bottom: 44.8%;
+
+    background: #5cb85c;
+    border-radius: 4px;
+}
+
+.total-botao-bot {
+    position: absolute;
+    left: 52.62%;
+    right: 1.74%;
+    top: 62.8%;
+    bottom: 16.4%;
+
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.total-botao-top-label {
+    font-family: Euclid Circular B Light;
+    font-size: 20px;
+    line-height: 10px;
+    /* identical to box height, or 125% */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.total-botao-bot-label {
+    font-family: Euclid Circular B Light;
+    font-size: 20px;
+    line-height: 10px;
+    /* identical to box height, or 125% */
+
+    color: #000000;
+}
+
+.total-descricao-itens {
+    position: absolute;
+    left: 2.81%;
+    right: 84.07%;
+    top: 34.4%;
+    bottom: 53.6%;
+
+    font-family: Euclid Circular B;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+.total-descricao-frete {
+    position: absolute;
+    left: 2.81%;
+    right: 83.76%;
+    top: 49.6%;
+    bottom: 38.4%;
+
+    font-family: Euclid Circular B;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+.total-descricao-total {
+    position: absolute;
+    left: 2.81%;
+    right: 83.92%;
+    top: 77.6%;
+    bottom: 10.4%;
+
+    font-family: Euclid Circular B;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+.total-descricao-itens-valor {
+    position: absolute;
+    left: 32.87%;
+    right: 51.1%;
+    top: 34.4%;
+    bottom: 53.6%;
+
+    font-family: Euclid Circular B;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+
+    color: #373a3c;
+}
+.total-descricao-frete-valor {
+    position: absolute;
+    left: 32.87%;
+    right: 51.1%;
+    top: 49.6%;
+    bottom: 38.4%;
+
+    font-family: Euclid Circular B;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+
+    color: #373a3c;
+}
+.total-descricao-total-valor {
+    position: absolute;
+    left: 32.81%;
+    right: 51.1%;
+    top: 77.6%;
+    bottom: 10.4%;
+
+    font-family: Euclid Circular B;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
 
     color: #373a3c;
 }

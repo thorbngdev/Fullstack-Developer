@@ -11,6 +11,7 @@ export class NovoPedidoState {
     private produtoSelecionado = new BehaviorSubject<Produto>(null);
     private produtosConfigurados = new BehaviorSubject<Produto[]>(null);
     private produtosEscolhidos = new BehaviorSubject<Produto[]>(null);
+    private pedidoFrete = new BehaviorSubject<number>(null);
 
     setClienteSelecionado(cliente: Cliente) {
         this.clienteSelecionado.next(cliente);
@@ -50,5 +51,13 @@ export class NovoPedidoState {
 
     getProdutosEscolhidos() {
         return this.produtosEscolhidos.asObservable();
+    }
+
+    setPedidoFrete(frete: number) {
+        this.pedidoFrete.next(frete);
+    }
+
+    getPedidoFrete() {
+        return this.pedidoFrete.asObservable();
     }
 }

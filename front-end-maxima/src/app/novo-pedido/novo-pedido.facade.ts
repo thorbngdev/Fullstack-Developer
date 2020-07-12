@@ -22,6 +22,10 @@ export class NovoPedidoFacade {
         this.novoPedidoState.setProdutosEscolhidos(produtos);
     }
 
+    setPedidoFrete(quantidade: number) {
+        this.novoPedidoApi.getFrete(quantidade).subscribe(frete => this.novoPedidoState.setPedidoFrete(frete));
+    }
+
     carregarClientesConfigurados() {
         console.log('Populando lista de clientes...');
         this.novoPedidoApi.getClientes().subscribe(clientes => this.novoPedidoState.setClientesConfigurados(clientes));
@@ -42,6 +46,10 @@ export class NovoPedidoFacade {
     
     getProdutosEscolhidos(): Observable<Produto[]> {
         return this.novoPedidoState.getProdutosEscolhidos();
+    }
+
+    getPedidoFrete(): Observable<number> {
+        return this.novoPedidoState.getPedidoFrete();
     }
 
 }

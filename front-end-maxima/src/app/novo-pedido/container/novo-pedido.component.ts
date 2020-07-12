@@ -22,9 +22,11 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   produtosEscolhidos: Produto[] = [];
   novoPedidoCodigo: number = 12345678;
+  pedidoFrete: number = 0;
 
   subscricaoClientesConfigurados: Subscription;
   subscricaoProdutosConfigurados: Subscription;
+  subscricaoPedidoFrete: Subscription;
 
   constructor(private novoPedidoFacade: NovoPedidoFacade) { }
 
@@ -45,6 +47,13 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
         this.popularListaProdutos(produtos);
       }
     });
+
+    this.subscricaoPedidoFrete = this.novoPedidoFacade.getPedidoFrete().subscribe(frete => {
+      if (frete != null) {
+        this.pedidoFrete = frete;
+      }
+    });
+
   }
 
   popularListaClientes(clientes: Cliente[]) {
@@ -71,10 +80,12 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
     event.quantidade = 1;
     this.produtosEscolhidos.push(event);
     this.novoPedidoFacade.setProdutosEscolhidos(this.produtosEscolhidos);
+    this.atualizarValorFrete();
   }
 
   removerProduto(event: Produto) {
     this.produtosEscolhidos.splice(this.produtosEscolhidos.indexOf(event), 1);
+    this.atualizarValorFrete();
   }
 
   formatarPreco(event: number) {
@@ -83,13 +94,38 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ajustarPrecoTotal(produto: Produto, event: any) {
     let qtd: number = event.target.value;
-    if(qtd > 0 && qtd < 100) {
+    if (qtd > 0 && qtd < 100) {
       produto.quantidade = event.target.value;
-      console.log(produto.quantidade);
-    } else {
-      console.log("Quantidade invalida");
+      this.atualizarValorFrete();
     }
-    
+  }
+
+  obterValorItens() {
+    let valorItens: number = 0;
+    for (let produto of this.produtosEscolhidos) {
+      valorItens = Number(valorItens) + (Number(produto.precoUnitario) * Number(produto.quantidade));
+    }
+    return this.formatarPreco(valorItens);
+  }
+
+  obterValorFrete() {
+    return this.formatarPreco(this.pedidoFrete);
+  }
+  obterValorTotal() {
+    let valorItens: number = 0;
+    for (let produto of this.produtosEscolhidos) {
+      valorItens = Number(valorItens) + (Number(produto.precoUnitario) * Number(produto.quantidade));
+    }
+    valorItens = Number(valorItens) + Number(this.pedidoFrete);
+    return this.formatarPreco(valorItens);
+  }
+
+  atualizarValorFrete() {
+    let qtdTotal: number = 0;
+    for(let produto of this.produtosEscolhidos) {
+      qtdTotal = Number(qtdTotal) + Number(produto.quantidade);
+    }
+    this.novoPedidoFacade.setPedidoFrete(qtdTotal);
   }
 
   obterNomeAjustado(produto: Produto) {
@@ -99,5 +135,6 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.subscricaoClientesConfigurados.unsubscribe();
     this.subscricaoProdutosConfigurados.unsubscribe();
+    this.subscricaoPedidoFrete.unsubscribe();
   }
 }

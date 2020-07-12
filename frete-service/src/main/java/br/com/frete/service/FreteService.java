@@ -20,6 +20,7 @@ public class FreteService {
         Random random = new Random();
         Integer valorGerado = random.nextInt((MAX - MIN) + 1) + MIN;
         Double frete = valorGerado.doubleValue() * quantidade;
+        System.out.println("\nValor Gerado: " + valorGerado + "\nQuantidade: " + quantidade + "\nFrete: " + frete);
         return frete;
     }
 }
