@@ -38,7 +38,6 @@ spring.datasource.password: SENHA
 * PostgreSQL 12
 * Porta 8080 liberada
 * Swagger Documentation: localhost:8080/swagger-ui.html#/
-
 * Após o application.properties com os dados do banco postgreSQL, apenas executar a aplicação
 
 ## Sobre frete-service
@@ -52,7 +51,6 @@ Serviço que contém a funcionalidade de cálculo de frete.
 * Java 8
 * Porta 8081 liberada
 * Swagger Documentation: http://localhost:8081/swagger-ui.html#/
-
 * Apenas executar a aplicação
 
 ## Sobre front-end-maxima
@@ -65,7 +63,6 @@ Front-end da aplicação, contém a interface do projeto.
 
 * Angular 10
 * Porta 4200 liberada
-
 * Apenas executar o projeto (ng serve)
 
 ## Contato
