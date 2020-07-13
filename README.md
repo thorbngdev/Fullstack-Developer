@@ -59,6 +59,10 @@ Serviço que contém a funcionalidade de cálculo de frete.
 
 Front-end da aplicação, contém a interface do projeto.
 
+**Funções**
+* Novo pedido
+* Listar pedidos
+
 **Configuração**
 
 * Angular 10
