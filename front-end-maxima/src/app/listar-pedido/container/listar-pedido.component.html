@@ -1,0 +1,25 @@
+<div class="tabela-pedido">
+  <label class="listar-pedido-label">Consulta pedido</label>
+    <table id="tabelaPedidos" class="table table-striped table-bordeless text-left">
+        <thead>
+          <div class="tabela-pedido-label">
+            <img class="tabela-pedido-label-img" src="../../../assets/icones/icone-pedidos-sm.png">
+            <label class="tabela-pedido-label-text">Pedidos</label>
+          </div>
+          <tr>
+            <th>#</th>
+            <th>Valor total</th>
+            <th>Quant. de itens</th>
+            <th>Valor do frete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of pedidos">
+            <td>{{pedido.cdPedido}}</td>
+            <td>R$ {{formatarPreco(pedido.valorTotal)}}</td>
+            <td>{{pedido.quantidade}}</td>
+            <td>R$ {{formatarPreco(pedido.valorFrete)}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

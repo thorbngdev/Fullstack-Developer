@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS PEDIDO
 (
     id_pedido serial NOT NULL,
+    cd_pedido character varying(255) COLLATE pg_catalog."default",
     cliente character varying(255) COLLATE pg_catalog."default",
     valor_total decimal(12,2),
     valor_frete decimal(12,2),

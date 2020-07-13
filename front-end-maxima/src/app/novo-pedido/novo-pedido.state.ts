@@ -1,5 +1,6 @@
-import { Produto } from './model/Produto';
-import { Cliente } from './model/Cliente';
+import { Produto } from './../model/Produto';
+import { ResponseApi } from '../model/ResponseApi';
+import { Cliente } from '../model/Cliente';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -12,6 +13,7 @@ export class NovoPedidoState {
     private produtosConfigurados = new BehaviorSubject<Produto[]>(null);
     private produtosEscolhidos = new BehaviorSubject<Produto[]>(null);
     private pedidoFrete = new BehaviorSubject<number>(null);
+    private responseApiEnviarPedido = new BehaviorSubject<ResponseApi>(null);
 
     setClienteSelecionado(cliente: Cliente) {
         this.clienteSelecionado.next(cliente);
@@ -59,5 +61,13 @@ export class NovoPedidoState {
 
     getPedidoFrete() {
         return this.pedidoFrete.asObservable();
+    }
+
+    setResponseApiEnviarPedido(responseApi: ResponseApi) {
+        this.responseApiEnviarPedido.next(responseApi);
+    }
+
+    getResponseApiEnviarPedido() {
+        return this.responseApiEnviarPedido.asObservable();
     }
 }

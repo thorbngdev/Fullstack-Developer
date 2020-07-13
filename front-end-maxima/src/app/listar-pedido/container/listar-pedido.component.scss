@@ -1,0 +1,66 @@
+.listar-pedido-label {
+    position: absolute;
+    width: 204px;
+    height: 30px;
+    left: 2px;
+    top: -7%;
+
+    font-family: Euclid Circular B Bold;
+    font-size: 26px;
+    line-height: 115%;
+    /* identical to box height, or 115% */
+
+    color: #373a3c;
+}
+
+.tabela-pedido {
+    position: absolute;
+    left: 4.17%;
+    right: 4.24%;
+    top: 17.25%;
+    bottom: 10.38%;
+    overflow: auto;
+
+    background: #ffffff;
+    /* Drop Shadow */
+
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+}
+
+.tabela-pedido-label {
+    height: 70px;
+    font-family: Euclid Circular B Bold;
+    font-size: 22.75px;
+    line-height: 24px;
+    /* identical to box height, or 105% */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #373a3c;
+}
+
+.tabela-pedido-label-img {
+    position: relative;
+    left: 7.39%;
+    right: 21.74%;
+    top: -30%;
+    bottom: 0%;
+
+    background: #373a3c;
+}
+
+.tabela-pedido-label-text {
+    position: relative;
+    left: 11.23%;
+    right: -14.69%;
+    top: -13.28%;
+    bottom: 1.48%;
+}
+
+table {
+    font-family: Euclid Circular B Light;
+    font-size: 16px;
+    line-height: 24px;
+}

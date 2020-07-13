@@ -74,11 +74,15 @@
         <label class="total-descricao-itens-valor">R$ {{obterValorItens()}}</label>
         <label class="total-descricao-frete-valor">R$ {{obterValorFrete()}}</label>
         <label class="total-descricao-total-valor">R$ {{obterValorTotal()}}</label>
-        <button class="btn total-botao-top row col-md-5">
-            <label class="total-botao-top-label" (click)="finalizarPedido()">Finalizar pedido</label>
+        <button class="btn total-botao-top row col-md-5" (click)="finalizarPedido()">
+            <label class="total-botao-top-label">Finalizar pedido</label>
         </button>
         <button class="btn total-botao-bot row col-md-5" (click)="limparCarrinho()">
             <label class="total-botao-bot-label">Limpar carrinho</label>
         </button>
+        <div class="toasts">
+            <div class="toastErro" *ngIf="toast == 'erro'">Erro ao finalizar pedido!</div>
+            <div class="toastSucesso" *ngIf="toast == 'sucesso'">Pedido finalizado com sucesso!</div>
+          </div>
     </div>
 </div>

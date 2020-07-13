@@ -8,6 +8,8 @@ import br.com.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping("/api")
 @RestController
 public class PedidoApi {
@@ -21,6 +23,11 @@ public class PedidoApi {
     @PostMapping("/pedido")
     public void postPedido(@RequestBody Pedido pedido) throws InserirPedidoException {
         pedidoDao.inserirPedido(pedido);
+    }
+
+    @GetMapping("/pedido")
+    public List<Pedido> getPedido() {
+        return pedidoDao.obterPedidos();
     }
 
     @GetMapping("/frete")

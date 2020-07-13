@@ -10,6 +10,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
+import java.util.List;
 
 @Repository
 public class PedidoDao {
@@ -19,11 +20,12 @@ public class PedidoDao {
 
     public void inserirPedido(Pedido pedido) throws InserirPedidoException {
         try {
-            String sql = "INSERT INTO PEDIDO(cliente, valor_total, valor_frete, quantidade, data_pedido) values(?, ?, ?, ?, now())";
+            String sql = "INSERT INTO PEDIDO(cd_pedido, cliente, valor_total, valor_frete, quantidade, data_pedido) values(?, ?, ?, ?, ?, now())";
             KeyHolder keyHolder = new GeneratedKeyHolder();
             int insertRows = jdbcTemplate.update(connection -> {
                 PreparedStatement pstmt = connection.prepareStatement(sql, new String[]{"id_pedido"});
                 int index = 1;
+                pstmt.setString(index++, pedido.getCdPedido());
                 pstmt.setString(index++, pedido.getCliente());
                 pstmt.setBigDecimal(index++, pedido.getValorTotal());
                 pstmt.setBigDecimal(index++, pedido.getValorFrete());
@@ -56,10 +58,9 @@ public class PedidoDao {
      * TODO
      * @return
      */
-//    public List<Pedido> obterPedidos() {
-//        String sqlPedido = "SELECT * FROM PEDIDO";
-//        String sqlPedidoItem = "SELECT * FROM PEDIDO_ITEM WHERE ID_PEDIDO = ?";
-//
-//    }
+    public List<Pedido> obterPedidos() {
+        String sql = "SELECT * FROM PEDIDO ORDER BY DATA_PEDIDO DESC";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> new Pedido(rs));
+    }
 
 }

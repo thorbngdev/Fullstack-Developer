@@ -1,9 +1,13 @@
-import { Produto } from './../model/Produto';
-import { Cliente } from './../model/Cliente';
+import { PedidoItem } from './../../model/PedidoItem';
+import { Pedido } from './../../model/Pedido';
+import { Produto } from './../../model/Produto';
+import { debounceTime } from 'rxjs/operators';
+import { Cliente } from '../../model/Cliente';
 import { Component, OnInit, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgSelectComponent } from '@ng-select/ng-select';
 import { NovoPedidoFacade } from '../novo-pedido.facade';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'novo-pedido',
@@ -21,16 +25,27 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
   produtoSelecionado: Produto;
 
   produtosEscolhidos: Produto[] = [];
-  novoPedidoCodigo: number = 12345678;
   pedidoFrete: number = 0;
+
+  private _toast = new Subject<string>();
+  toast: string = '';
 
   subscricaoClientesConfigurados: Subscription;
   subscricaoProdutosConfigurados: Subscription;
+  subscricaoClienteSelecionado: Subscription;
+  subscricaoResponseApiEnviarPedido: Subscription;
   subscricaoPedidoFrete: Subscription;
+
+  /**
+   * Código de pedido aleatório
+   */
+  novoPedidoCodigo: number = Math.floor(Math.random() * (999999 - 100000)) + 100000;
 
   constructor(private novoPedidoFacade: NovoPedidoFacade) { }
 
   ngOnInit(): void {
+    this._toast.subscribe((resposta) => this.toast = resposta);
+    this._toast.pipe(debounceTime(2500)).subscribe(() => this.toast = '');
   }
 
   ngAfterViewInit(): void {
@@ -51,6 +66,22 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscricaoPedidoFrete = this.novoPedidoFacade.getPedidoFrete().subscribe(frete => {
       if (frete != null) {
         this.pedidoFrete = frete;
+      }
+    });
+
+    this.subscricaoClienteSelecionado = this.novoPedidoFacade.getClienteSelecionado().subscribe(cliente => {
+      if (cliente != null) {
+        this.clienteSelecionado = cliente;
+      }
+    });
+
+    this.subscricaoResponseApiEnviarPedido = this.novoPedidoFacade.getResponseApiEnviarPedido().subscribe(responseApi => {
+      if (responseApi != null) {
+        if (responseApi.status == 200) {
+          this.salvarToastHandler('sucesso');
+        } else {
+          this.salvarToastHandler('erro');
+        }
       }
     });
 
@@ -123,7 +154,7 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   atualizarValorFrete() {
     let qtdTotal: number = 0;
-    for(let produto of this.produtosEscolhidos) {
+    for (let produto of this.produtosEscolhidos) {
       qtdTotal = Number(qtdTotal) + Number(produto.quantidade);
     }
     this.novoPedidoFacade.setPedidoFrete(qtdTotal);
@@ -135,16 +166,51 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   limparCarrinho() {
     this.produtosEscolhidos = [];
+    this.clienteSelecionado = null;
     this.pedidoFrete = 0;
+    this.selectProduto.clearModel();
+    this.selectCliente.clearModel();
   }
 
   finalizarPedido() {
+    /**
+     * TODO 
+     * VERIFICAR SE POSSUI ITEMS
+     * VERIFICAR SE POSSUI CLIENTE
+     * 
+     */
+    if (!this.carrinhoVazio() && this.clienteSelecionado != null) {
+      let pedidoItens: PedidoItem[] = [];
+      let quantidade: number = 0;
+      let valorTotal: number = 0;
+      for (let produtoEscolhido of this.produtosEscolhidos) {
+        let pedidoItem = new PedidoItem(produtoEscolhido.id, produtoEscolhido.nome, produtoEscolhido.codigo, produtoEscolhido.quantidade, produtoEscolhido.precoUnitario);
+        quantidade = Number(quantidade) + Number(produtoEscolhido.quantidade);
+        valorTotal = Number(valorTotal) + (Number(produtoEscolhido.precoUnitario) * Number(produtoEscolhido.quantidade));
+        pedidoItens.push(pedidoItem);
+      }
+      let pedido = new Pedido(this.novoPedidoCodigo.toString(), this.clienteSelecionado.nome, valorTotal, this.pedidoFrete, quantidade, null, pedidoItens);
+      console.log(pedido);
+      this.novoPedidoFacade.enviarPedido(pedido);
+      this.novoPedidoCodigo = Math.floor(Math.random() * (999999 - 100000)) + 100000;
+      this.limparCarrinho();
+    } else {
+      console.log(this.clienteSelecionado);
+      console.log(this.produtosEscolhidos);
+      console.error('Carrinho vazio ou cliente não selecionado!');
+      this.salvarToastHandler('erro');
+    }
+  }
 
+  salvarToastHandler(value: string): void {
+    this._toast.next(value);
   }
 
   ngOnDestroy() {
     this.subscricaoClientesConfigurados.unsubscribe();
     this.subscricaoProdutosConfigurados.unsubscribe();
+    this.subscricaoClienteSelecionado.unsubscribe();
+    this.subscricaoResponseApiEnviarPedido.unsubscribe();
     this.subscricaoPedidoFrete.unsubscribe();
   }
 }

@@ -1,6 +1,8 @@
-import { Produto } from './model/Produto';
+import { Pedido } from './../model/Pedido';
+import { Produto } from './../model/Produto';
+import { ResponseApi } from '../model/ResponseApi';
 import { Observable } from 'rxjs';
-import { Cliente } from './model/Cliente';
+import { Cliente } from '../model/Cliente';
 import { NovoPedidoState } from './novo-pedido.state';
 import { Injectable } from "@angular/core";
 import { NovoPedidoApi } from './novo-pedido.api';
@@ -50,6 +52,28 @@ export class NovoPedidoFacade {
 
     getPedidoFrete(): Observable<number> {
         return this.novoPedidoState.getPedidoFrete();
+    }
+
+    getClienteSelecionado(): Observable<Cliente> {
+        return this.novoPedidoState.getClienteSelecionado();
+    }
+
+    getResponseApiEnviarPedido(): Observable<ResponseApi> {
+        return this.novoPedidoState.getResponseApiEnviarPedido();
+    }
+
+    enviarPedido(pedido: Pedido) {
+        this.novoPedidoApi.postEnviarPedido(pedido).subscribe(response => {
+            console.log('status ' + response.status);
+            console.log('status text ' + response.statusText);
+            let responseApi = new ResponseApi(response.status, response.statusText);
+            this.novoPedidoState.setResponseApiEnviarPedido(responseApi);
+        },
+        error => {
+            console.log('Erro ao enviar um pedido!')
+            let responseApi = new ResponseApi(error.status, error.statusText);
+            this.novoPedidoState.setResponseApiEnviarPedido(responseApi);
+        });
     }
 
 }
