@@ -166,10 +166,8 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   limparCarrinho() {
     this.produtosEscolhidos = [];
-    this.clienteSelecionado = null;
     this.pedidoFrete = 0;
     this.selectProduto.clearModel();
-    this.selectCliente.clearModel();
   }
 
   finalizarPedido() {

@@ -51,6 +51,7 @@ public class PedidoDao {
                 jdbcTemplate.update(sqlItem, idPedido, item.getIdItem(), item.getNomeItem(), item.getCodigoItem(), item.getQuantidade(), item.getValorUnitario());
             }
         } catch (Exception e) {
+            e.printStackTrace();
             throw new InserirPedidoException();
         }
     }
