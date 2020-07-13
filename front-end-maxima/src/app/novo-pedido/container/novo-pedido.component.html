@@ -20,18 +20,15 @@
             <ng-select class="custom" #selectproduto [items]="produtos" bindLabel="nome"
                 placeholder="Pesquise um produto" (change)="setProdutoSelecionado($event)">
                 <ng-template ng-option-tmp let-produto="item">
-                    <button class="btn carrinho-select-button"
-                        (click)="adicionarProduto(produto)">{{produto.nome}}</button>
+                    <div class="carrinho-select-button" (click)="adicionarProduto(produto)">{{produto.nome}}</div>
                 </ng-template>
             </ng-select>
-
         </div>
         <div *ngIf="carrinhoVazio()" class="carrinho-vazio">
             <img class="carrinho-vazio-icone" src="../../../assets/icones/imagem-carrinho-empty-state.png">
             <label class="carrinho-vazio-label-1">Carrinho vazio</label>
             <label class="carrinho-vazio-label-2">Nenhum produto foi inserido</label>
         </div>
-        <!--flexibilizar com aumento de lista-->
         <div *ngIf="!carrinhoVazio()" class="carrinho-lista">
             <div class="card">
                 <ul class="list-group list-group-flush">
@@ -78,37 +75,10 @@
         <label class="total-descricao-frete-valor">R$ {{obterValorFrete()}}</label>
         <label class="total-descricao-total-valor">R$ {{obterValorTotal()}}</label>
         <button class="btn total-botao-top row col-md-5">
-            <label class="total-botao-top-label ">Finalizar pedido</label>
+            <label class="total-botao-top-label" (click)="finalizarPedido()">Finalizar pedido</label>
         </button>
-        <button class="btn total-botao-bot row col-md-5">
+        <button class="btn total-botao-bot row col-md-5" (click)="limparCarrinho()">
             <label class="total-botao-bot-label">Limpar carrinho</label>
         </button>
     </div>
 </div>
-<!-- 
-<ng-select [required]="true" [items]="tabelas$ | async" [closeOnSelect]="false" bindLabel="tabelaDestino" placeholder="Campo obrigatório!" appendTo="body" [multiple]="true" [(ngModel)]="selectedItem" [hideSelected]="true" (remove)="onDelete($event.value)"
-    (clear)="onDeleteAll($event)">
-    <ng-template ng-option-tmp let-item="item">
-        <button class="btn botao-item" (click)="onSelectItem(item)">{{item.tabelaDestino}}
-                </button>
-    </ng-template>
-    <ng-template ng-multi-label-tmp let-items="items">
-        <div class="ng-value" *ngFor="let item of (items ? items.slice(0,[boxLimit]): [])">
-            <span class="ng-value-label"> {{item.tabelaDestino}}</span>
-            <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
-        </div>
-        <div class="ng-value" *ngIf="items.length > [boxLimit]" placement="right" [ngbTooltip]="myTemplateId" container="body">
-            <span class="ng-value-label">
-                          {{items.length - boxLimit}} mais...
-                    </span>
-            <ng-template #myTemplateId>
-                <a style="white-space: pre-line">{{ tooltipPrint() }}</a>
-            </ng-template>
-        </div>
-    </ng-template>
-    <ng-template ng-header-tmp>
-        <div>
-            <button class="btn btn-link botao-selecionar-todos" (click)="onSelectAll()">Selecionar Todos</button>
-        </div>
-    </ng-template>
-</ng-select> -->

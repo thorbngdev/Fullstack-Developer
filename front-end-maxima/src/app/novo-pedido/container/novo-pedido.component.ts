@@ -111,6 +111,7 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
   obterValorFrete() {
     return this.formatarPreco(this.pedidoFrete);
   }
+
   obterValorTotal() {
     let valorItens: number = 0;
     for (let produto of this.produtosEscolhidos) {
@@ -130,6 +131,15 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   obterNomeAjustado(produto: Produto) {
     return produto.nome.slice(0, 50) + '...';
+  }
+
+  limparCarrinho() {
+    this.produtosEscolhidos = [];
+    this.pedidoFrete = 0;
+  }
+
+  finalizarPedido() {
+
   }
 
   ngOnDestroy() {
