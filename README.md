@@ -65,7 +65,7 @@ Front-end da aplicação, contém a interface do projeto.
 * Porta 4200 liberada
 * Apenas executar o projeto (ng serve)
 
-## Instrução de execução
+## Ordem de execução
 
 1. Execute a api-service com as devidas configurações de banco.
 2. Execute o frete-service, não há configurações necessárias.

@@ -196,7 +196,7 @@ export class NovoPedidoComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log(this.clienteSelecionado);
       console.log(this.produtosEscolhidos);
       console.error('Carrinho vazio ou cliente não selecionado!');
-      this.salvarToastHandler('erro');
+      this.salvarToastHandler('erro-cliente-carrinho');
     }
   }
 

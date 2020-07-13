@@ -82,6 +82,7 @@
         </button>
         <div class="toasts">
             <div class="toastErro" *ngIf="toast == 'erro'">Erro ao finalizar pedido!</div>
+            <div class="toastErro" *ngIf="toast == 'erro-cliente-carrinho'">Cliente não selecionado ou carrinho vazio</div>
             <div class="toastSucesso" *ngIf="toast == 'sucesso'">Pedido finalizado com sucesso!</div>
           </div>
     </div>
