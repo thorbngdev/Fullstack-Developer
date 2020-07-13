@@ -8,7 +8,7 @@ Projeto referente ao processo seletivo da MaximaTech para Desenvolvedor Fullstac
 2. api-service
 3. frete-service
 
-## Sobre api-service
+## api-service
 
 **Sobre**
 
@@ -40,7 +40,7 @@ spring.datasource.password: SENHA
 * Swagger Documentation: localhost:8080/swagger-ui.html#/
 * Após o application.properties com os dados do banco postgreSQL, apenas executar a aplicação
 
-## Sobre frete-service
+## frete-service
 
 **Sobre**
 
@@ -53,7 +53,7 @@ Serviço que contém a funcionalidade de cálculo de frete.
 * Swagger Documentation: http://localhost:8081/swagger-ui.html#/
 * Apenas executar a aplicação
 
-## Sobre front-end-maxima
+## front-end-maxima
 
 **Sobre**
 
@@ -64,6 +64,12 @@ Front-end da aplicação, contém a interface do projeto.
 * Angular 10
 * Porta 4200 liberada
 * Apenas executar o projeto (ng serve)
+
+## Instrução de execução
+
+1. Execute a api-service com as devidas configurações de banco.
+2. Execute o frete-service, não há configurações necessárias.
+3. Execute o front-end-maxima, não há configurações necessárias.
 
 ## Contato
 eduardotorresgalvao@gmail.com
